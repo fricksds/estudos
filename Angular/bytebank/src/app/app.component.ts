@@ -8,10 +8,12 @@ import { fromEvent, delay } from 'rxjs';
 })
 export class AppComponent {
   title = 'bytebank';
-  transferencia: any;
+  transferencias: any[] = [];
 
   transferir(event): void {
     console.log(event);
-    this.transferencia = event;
+    const transferencia = {...event, data: new Date()};
+
+    this.transferencias.push(transferencia);
   }
 }
